@@ -10,12 +10,24 @@ import {
 import fonts from '../styles/fonts'
 import colors from '../styles/colors'
 import { Button } from '../components/Button'
+import { useNavigation } from '@react-navigation/core'
 
 
 export function PIN() {
+
+    const navigation = useNavigation();
+
+
+    function handleSubmit() {
+        navigation.navigate("Home")
+    }
+
+
+
     return (
 
         <SafeAreaView style={styles.container}>
+
             <View style={styles.content}>
                 <View style={styles.form}>
                     <Text style={styles.heading}>
@@ -23,13 +35,17 @@ export function PIN() {
                     </Text>
 
                     <TextInput
+                        placeholderTextColor="#fff"
+                        maxLength={4}
+                        autoCorrect={true}
                         style={styles.input}
-                        placeholder="insira o PIN"
+                        placeholder="disponha os 4 digitos"
                     />
 
                     <View style={styles.footer}>
                         <Button
-                            title="confirmar"
+                            title="Confirmar"
+                            onPress={handleSubmit}
                         />
                     </View>
                 </View>

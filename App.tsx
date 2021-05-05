@@ -1,10 +1,10 @@
 import React from 'react';
 import { } from 'react-native'
-import { PIN } from './src/pages/PIN'
+import Routes from './src/routes'
 import {
   useFonts,
   Roboto_400Regular,
-  Roboto_700Bold
+  Roboto_700Bold,
 } from '@expo-google-fonts/roboto'
 
 export default function App() {
@@ -13,10 +13,7 @@ export default function App() {
     Roboto_700Bold
   });
 
-
-
   return (
-
-    <PIN />
+    <Routes />
   );
 }

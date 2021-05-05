@@ -8,15 +8,16 @@ import {
     SafeAreaView
 } from 'react-native'
 
-import mainIcon from '../assets/mainIcon.png';
+
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 import { ButtonMenu } from '../components/ButtonMenu'
 import { useNavigation } from '@react-navigation/core';
+import { TextInput } from 'react-native-gesture-handler';
 
 
 
-export function Home() {
+export function CadastroCliente() {
 
     const navigation = useNavigation();
 
@@ -32,11 +33,18 @@ export function Home() {
                     title=""
                     onPress={handleMenu}
                 />
-                <Text style={styles.title}>Home</Text>
+                <Text style={styles.title}>Cadastro de Clientes</Text>
             </View>
 
+            <View style={styles.crud}>
 
-            <Image source={mainIcon} style={styles.image} />
+                <Text style={styles.nameTxtInput}>Nome:</Text>
+
+                <TextInput
+                    style={styles.input}
+                />
+            </View>
+
 
         </SafeAreaView>
 
@@ -58,7 +66,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#D9A3A1',
         marginVertical: 26,
-        maxHeight: 80,
+        maxHeight: 80
     },
 
 
@@ -74,14 +82,26 @@ const styles = StyleSheet.create({
         fontFamily: fonts.heading
     },
 
-    image: {
-        top: -300,
-        left: 83,
-        padding: 200,
-        width: 200,
-        height: 200,
-        justifyContent: 'center',
-        opacity: 0.6
+    crud: {
+        flex: 1,
+        justifyContent: 'space-between'
+    },
+
+    nameTxtInput: {
+        fontSize: 20,
+        left: 10,
+        color: colors.rosao
+    },
+
+    input: {
+        borderBottomWidth: 1,
+        borderColor: 'white',
+        color: colors.rosao,
+        width: '100%',
+        fontSize: 18,
+        marginTop: 50,
+        padding: 10,
+        textAlign: 'left'
     }
 
 })

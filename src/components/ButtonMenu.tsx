@@ -8,13 +8,13 @@ import {
 } from 'react-native'
 
 import colors from '../styles/colors'
-import fonts from '../styles/fonts'
+import { EvilIcons } from '@expo/vector-icons'
 
 interface ButtonProps extends TouchableOpacityProps {
     title: string
 }
 
-export function Button({ title, ...rest }: ButtonProps) {
+export function ButtonMenu({ title, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity
             style={styles.container}
@@ -22,7 +22,7 @@ export function Button({ title, ...rest }: ButtonProps) {
         >
 
             <Text style={styles.text}>
-                {title}
+                <EvilIcons name='navicon' minimumFontScale={30} />
             </Text>
 
         </TouchableOpacity>
@@ -30,20 +30,22 @@ export function Button({ title, ...rest }: ButtonProps) {
     )
 }
 
-
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.rosao,
-        height: 56,
+        backgroundColor: colors.background,
+        height: 50,
+        width: 50,
         borderRadius: 16,
+        marginTop: 18,
+        marginLeft: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
 
     text: {
-        fontSize: 20,
-        color: colors.background,
-        fontFamily: fonts.heading
-    }
 
-});
+        fontSize: 50,
+        color: colors.rosao,
+
+    }
+})

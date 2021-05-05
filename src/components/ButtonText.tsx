@@ -14,7 +14,7 @@ interface ButtonProps extends TouchableOpacityProps {
     title: string
 }
 
-export function Button({ title, ...rest }: ButtonProps) {
+export function ButtonText({ title, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity
             style={styles.container}
@@ -33,17 +33,18 @@ export function Button({ title, ...rest }: ButtonProps) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.rosao,
-        height: 56,
+        backgroundColor: colors.rosaDiferenciado,
+        height: 16,
         borderRadius: 16,
+        marginBottom: 20,
         justifyContent: 'center',
         alignItems: 'center'
     },
 
     text: {
-        fontSize: 20,
-        color: colors.background,
-        fontFamily: fonts.heading
+        fontSize: 18,
+        color: colors.marromDaMassa,
+        fontFamily: fonts.text
     }
 
 });
