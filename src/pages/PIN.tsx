@@ -40,6 +40,7 @@ export function PIN() {
                         autoCorrect={true}
                         style={styles.input}
                         placeholder="disponha os 4 digitos"
+                        keyboardType="numeric"
                     />
 
                     <View style={styles.footer}>

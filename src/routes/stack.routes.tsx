@@ -6,6 +6,7 @@ import { PIN } from '../pages/PIN';
 import { Home } from '../pages/Home';
 import { Menu } from '../pages/Menu';
 import { CadastroCliente } from '../pages/CadastroClientes';
+import {CadastroProdutos } from '../pages/CadastroProdutos';
 
 const stackRoutes = createStackNavigator();
 
@@ -39,6 +40,10 @@ const AppRoutes: React.FC = () => (
         <stackRoutes.Screen
             name="CadastroClientes"
             component={CadastroCliente}
+        />
+        <stackRoutes.Screen
+            name="CadastroProdutos"
+            component={CadastroProdutos}
         />
 
     </stackRoutes.Navigator>

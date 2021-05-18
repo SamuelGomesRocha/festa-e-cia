@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 
 import colors from '../styles/colors'
-import { EvilIcons } from '@expo/vector-icons'
+import { EvilIcons,Feather } from '@expo/vector-icons'
 
 interface ButtonProps extends TouchableOpacityProps {
     title: string
@@ -22,7 +22,7 @@ export function ButtonMenu({ title, ...rest }: ButtonProps) {
         >
 
             <Text style={styles.text}>
-                <EvilIcons name='navicon' minimumFontScale={30} />
+            <EvilIcons name='navicon' size={30} />
             </Text>
 
         </TouchableOpacity>
