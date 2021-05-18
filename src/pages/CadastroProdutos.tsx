@@ -41,7 +41,7 @@ import { useNavigation } from '@react-navigation/core'
         flexDirection: 'row', 
         backgroundColor: colors.rosao,
         marginVertical: 26,
-        maxHeight: 81,
+        maxHeight: 80,
      }, 
      estiloTitulo: {
         fontSize: 26,
