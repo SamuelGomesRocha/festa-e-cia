@@ -20,6 +20,9 @@ export function Menu() {
     function handleCadCliente() {
         navigation.navigate('CadastroClientes')
     }
+    function handleCadProdutos() {
+        navigation.navigate('CadastroProdutos')
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -35,7 +38,10 @@ export function Menu() {
                     onPress={handleCadCliente}
                 />
                 <ButtonText title={"Locação"} />
-                <ButtonText title={"Produtos"} />
+                <ButtonText 
+                    title={"Produtos"}
+                     onPress={handleCadProdutos}
+                     />
 
 
             </View>
