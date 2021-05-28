@@ -1,5 +1,5 @@
 import React from 'react'
-import { } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import Routes from './src/routes'
 
 import {
@@ -30,10 +30,20 @@ export default function App() {
   const Drawer = createDrawerNavigator();
 
   return (
-    <SafeAreaProvider >
-      <NavigationContainer >
+    <SafeAreaProvider>
+      <NavigationContainer>
+      <Drawer.Navigator
+        drawerStyle={{
+          backgroundColor: colors.background,
+        }}
 
-        <Drawer.Navigator
+        drawerContentOptions={
+          {
+            activeBackgroundColor: colors.marromDaMassa,
+            inactiveTintColor:colors.marromDaMassa,
+            activeTintColor:'white'
+          }
+
           screenOptions={{ headerShown: true, headerLeft: () => <ButtonMenu /> }}
           drawerContent={(props) => <MenuContent {...props} />}
 
@@ -46,7 +56,5 @@ export default function App() {
       </NavigationContainer>
       <StatusBar style='auto' />
     </SafeAreaProvider>
-
-    //  <Routes />
   );
 }

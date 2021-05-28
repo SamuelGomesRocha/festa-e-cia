@@ -3,7 +3,6 @@ import {
     TouchableOpacity,
     Text,
     StyleSheet,
-    TouchableOpacityProps
 
 } from 'react-native'
 
@@ -20,36 +19,27 @@ export function ButtonMenu() {
         navigation.dispatch(DrawerActions.openDrawer());
     }, []);
 
-    return (
-        <TouchableOpacity
-            style={styles.container}
-        >
-
-
-            <Text style={styles.text}>
-                <EvilIcons name='navicon' size={30} onPress={openDrawer} />
-            </Text>
-        </TouchableOpacity>
-
-    )
+  return (
+    <TouchableOpacity style={styles.container} >
+      <Text style={styles.text}>
+        <EvilIcons name='navicon' size={20} onPress={openDrawer} />
+      </Text>
+    </TouchableOpacity>
+  )
 }
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.background,
-        height: 50,
-        width: 50,
-        borderRadius: 16,
-        marginTop: 18,
-        marginLeft: 10,
+        height: 40,
+        width: 40,
+        borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
 
     text: {
-
-        fontSize: 50,
+        fontSize: 0,
         color: colors.rosao,
-
     }
 })

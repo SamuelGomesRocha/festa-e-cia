@@ -14,35 +14,13 @@ import fonts from '../styles/fonts';
 import { ButtonMenu } from '../components/ButtonMenu'
 import { useNavigation } from '@react-navigation/core';
 import { TextInput } from 'react-native-gesture-handler';
+import { Header } from '../components/Header';
 
 
 
 export function CadastroCliente() {
-
-    const navigation = useNavigation();
-
-    function handleMenu() {
-        navigation.navigate('Menu')
-    }
-
     return (
         <SafeAreaView style={styles.container}>
-
-            <View style={styles.topComponent}>
-                <ButtonMenu />
-                <Text style={styles.title}>Cadastro de Clientes</Text>
-            </View>
-
-            <View style={styles.crud}>
-
-                <Text style={styles.nameTxtInput}>Nome:</Text>
-
-                <TextInput
-                    style={styles.input}
-                />
-            </View>
-
-
         </SafeAreaView>
 
     )
