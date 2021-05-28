@@ -5,21 +5,11 @@ import colors from '../styles/colors'
 import fonts from '../styles/fonts'
 import { ButtonMenu } from '../components/ButtonMenu'
 import { useNavigation } from '@react-navigation/core'
+import { Header } from '../components/Header'
 
 export function CadastroProdutos() {
-    const navigation = useNavigation()
-    function handleMenu() {
-        navigation.navigate('Menu')
-    }
-
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.titulo}>
-                <ButtonMenu />
-                <Text style={styles.estiloTitulo}>
-                    Cadastro de Testes
-            </Text>
-            </View>
         </SafeAreaView>
     )
 

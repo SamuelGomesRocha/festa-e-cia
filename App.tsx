@@ -1,5 +1,5 @@
 import React from 'react'
-import { } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import Routes from './src/routes'
 
 import {
@@ -17,6 +17,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ButtonMenu } from './src/components/ButtonMenu'
 import { Home } from './src/pages/Home'
 import MenuContent from './src/components/MenuContent'
+import colors from './src/styles/colors'
 
 
 
@@ -31,7 +32,18 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Drawer.Navigator
+      <Drawer.Navigator
+        drawerStyle={{
+          backgroundColor: colors.background,
+        }}
+
+        drawerContentOptions={
+          {
+            activeBackgroundColor: colors.marromDaMassa,
+            inactiveTintColor:colors.marromDaMassa,
+            activeTintColor:'white'
+          }
+        }
           screenOptions={{ headerShown: true, headerLeft: () => <ButtonMenu /> }}
           drawerContent={(props) => <MenuContent {...props} />}
         >
@@ -41,7 +53,5 @@ export default function App() {
       </NavigationContainer>
       <StatusBar style='auto' />
     </SafeAreaProvider>
-
-    //  <Routes />
   );
 }
