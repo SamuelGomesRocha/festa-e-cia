@@ -15,18 +15,13 @@ export function CadastroProdutos() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.titulo}>
-                <ButtonMenu
-                    title=''
-                    onPress={handleMenu}
-                />
+                <ButtonMenu />
                 <Text style={styles.estiloTitulo}>
                     Cadastro de Testes
             </Text>
             </View>
         </SafeAreaView>
     )
-
-
 
 }
 
@@ -51,6 +46,4 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
 
     }
-
-
 })

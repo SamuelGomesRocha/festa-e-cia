@@ -29,10 +29,7 @@ export function CadastroCliente() {
         <SafeAreaView style={styles.container}>
 
             <View style={styles.topComponent}>
-                <ButtonMenu
-                    title=""
-                    onPress={handleMenu}
-                />
+                <ButtonMenu />
                 <Text style={styles.title}>Cadastro de Clientes</Text>
             </View>
 

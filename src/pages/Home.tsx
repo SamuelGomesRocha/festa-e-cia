@@ -28,10 +28,7 @@ export function Home() {
         <SafeAreaView style={styles.container}>
 
             <View style={styles.topComponent}>
-                <ButtonMenu
-                    title=""
-                    onPress={handleMenu}
-                />
+                <ButtonMenu />
                 <Text style={styles.title}>Home</Text>
             </View>
 

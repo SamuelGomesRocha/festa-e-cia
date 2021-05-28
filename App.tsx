@@ -1,8 +1,7 @@
 import React from 'react'
 import { } from 'react-native'
 import Routes from './src/routes'
-import SideBar from './src/routes'
-import DrawerContent from './src/routes'
+
 import {
   useFonts,
   Roboto_400Regular,
@@ -11,9 +10,14 @@ import {
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { Menu } from './src/pages/Menu'
-//import Drawer from './src/routes/drawer'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { CadastroProdutos } from './src/pages/CadastroProdutos'
+import { CadastroCliente } from './src/pages/CadastroClientes'
+import { StatusBar } from 'expo-status-bar';
+import { ButtonMenu } from './src/components/ButtonMenu'
+import { Home } from './src/pages/Home'
+import MenuContent from './src/components/MenuContent'
 
-const Drawer = createDrawerNavigator();
 
 
 export default function App() {
@@ -22,13 +26,22 @@ export default function App() {
     Roboto_700Bold
   });
 
-  return (
-    <NavigationContainer>
-      <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-        <Drawer.Screen name="Home" component={Menu} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+  const Drawer = createDrawerNavigator();
 
-    // <Routes />
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          screenOptions={{ headerShown: true, headerLeft: () => <ButtonMenu /> }}
+          drawerContent={(props) => <MenuContent {...props} />}
+        >
+          <Drawer.Screen name="Castro de Produtos" component={CadastroProdutos} />
+          <Drawer.Screen name="Cadastro de Clientes" component={CadastroCliente} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+      <StatusBar style='auto' />
+    </SafeAreaProvider>
+
+    //  <Routes />
   );
 }

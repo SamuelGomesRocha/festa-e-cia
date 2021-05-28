@@ -8,23 +8,27 @@ import {
 } from 'react-native'
 
 import colors from '../styles/colors'
-import { EvilIcons,Feather } from '@expo/vector-icons'
+import { EvilIcons, Feather } from '@expo/vector-icons'
+import { DrawerActions, useNavigation } from '@react-navigation/native';
+import { useCallback } from 'react';
 
-interface ButtonProps extends TouchableOpacityProps {
-    title: string
-}
 
-export function ButtonMenu({ title, ...rest }: ButtonProps) {
+export function ButtonMenu() {
+
+    const navigation = useNavigation();
+    const openDrawer = useCallback(() => {
+        navigation.dispatch(DrawerActions.openDrawer());
+    }, []);
+
     return (
         <TouchableOpacity
             style={styles.container}
-            {...rest}
+
         >
 
             <Text style={styles.text}>
-            <EvilIcons name='navicon' size={30} />
+                <EvilIcons name='navicon' size={30} onPress={openDrawer} />
             </Text>
-
         </TouchableOpacity>
 
     )
