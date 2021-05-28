@@ -10,7 +10,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import { Menu } from './src/pages/Menu'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { CadastroProdutos } from './src/pages/CadastroProdutos'
 import { CadastroCliente } from './src/pages/CadastroClientes'
 import { StatusBar } from 'expo-status-bar';
@@ -43,13 +43,16 @@ export default function App() {
             inactiveTintColor:colors.marromDaMassa,
             activeTintColor:'white'
           }
-        }
+
           screenOptions={{ headerShown: true, headerLeft: () => <ButtonMenu /> }}
           drawerContent={(props) => <MenuContent {...props} />}
+
         >
+
           <Drawer.Screen name="Castro de Produtos" component={CadastroProdutos} />
           <Drawer.Screen name="Cadastro de Clientes" component={CadastroCliente} />
         </Drawer.Navigator>
+
       </NavigationContainer>
       <StatusBar style='auto' />
     </SafeAreaProvider>
