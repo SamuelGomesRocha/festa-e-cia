@@ -4,13 +4,14 @@ import {
     DrawerContentScrollView,
     DrawerItemList,
 } from '@react-navigation/drawer';
+import colors from '../styles/colors';
 
 
 const MenuContent: React.FunctionComponent<DrawerContentComponentProps> = (
     props
 ) => {
     return (
-        <DrawerContentScrollView {...props}>
+        <DrawerContentScrollView {...props} style={{ backgroundColor: colors.rosao }}>
 
             <DrawerItemList {...props} />
         </DrawerContentScrollView>

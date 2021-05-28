@@ -23,8 +23,8 @@ export function ButtonMenu() {
     return (
         <TouchableOpacity
             style={styles.container}
-
         >
+
 
             <Text style={styles.text}>
                 <EvilIcons name='navicon' size={30} onPress={openDrawer} />
