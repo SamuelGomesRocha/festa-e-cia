@@ -30,7 +30,6 @@ export function ButtonMenu() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.background,
         height: 40,
         width: 40,
         borderRadius: 20,
