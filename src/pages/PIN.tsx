@@ -19,7 +19,7 @@ export function PIN() {
 
 
     function handleSubmit() {
-        navigation.navigate("Home")
+        navigation.navigate("CadastroProdutos")
     }
 
 
