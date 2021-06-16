@@ -1,90 +1,103 @@
 import React, { useState } from 'react'
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
-import { TextInput } from 'react-native-paper';
+import { DefaultTheme, TextInput } from 'react-native-paper';
 import { Button } from '../components/Button';
 import colors from '../styles/colors';
 import api from '../services/api';
 
+
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    text: colors.rosao,
+    primary: colors.rosao,
+    accent: colors.rosao
+
+  }
+};
+
 export function CadastroProdutos() {
 
-  const [dadosProduto, setDadosProduto]=useState({
-    nome:'',
-    precoCusto:'',
-    precoLocacao:'',
-    categoria:'',
+  const [dadosProduto, setDadosProduto] = useState({
+    nome: '',
+    precoCusto: '',
+    precoLocacao: '',
+    categoria: '',
   })
 
 
-  const [dadosEstoque, setDadosEstoque]=useState({
-    quantidadeTotal:'',
-    quantidadeDisponivel:''
+  const [dadosEstoque, setDadosEstoque] = useState({
+    quantidadeTotal: '',
+    quantidadeDisponivel: ''
   })
 
-  const handleDataNome=(data:string)=>{
+  const handleDataNome = (data: string) => {
     setDadosProduto({
       ...dadosProduto,
-      nome:data
-    })
-  }
-  
-  const handleDataPrecoCusto=(data:string)=>{
-    setDadosProduto({
-      ...dadosProduto,
-      precoCusto:data
-    })
-  }
-  const handleDataPrecoLocacao=(data:string)=>{
-    setDadosProduto({
-      ...dadosProduto,
-      precoLocacao:data
-    })
-  }
-  const handleDataCategoria=(data:string)=>{
-    setDadosProduto({
-      ...dadosProduto,
-      categoria:data
+      nome: data
     })
   }
 
-  const handleDataQantidade=(data:string)=>{
+  const handleDataPrecoCusto = (data: string) => {
+    setDadosProduto({
+      ...dadosProduto,
+      precoCusto: data
+    })
+  }
+  const handleDataPrecoLocacao = (data: string) => {
+    setDadosProduto({
+      ...dadosProduto,
+      precoLocacao: data
+    })
+  }
+  const handleDataCategoria = (data: string) => {
+    setDadosProduto({
+      ...dadosProduto,
+      categoria: data
+    })
+  }
+
+  const handleDataQantidade = (data: string) => {
     setDadosEstoque({
-      quantidadeDisponivel:data,
-      quantidadeTotal:data
+      quantidadeDisponivel: data,
+      quantidadeTotal: data
     })
   }
 
 
-  const createProduto=()=>{
-    console.log(dadosProduto,dadosEstoque)
-    api.post('/produto',{
-      produto:{
+  const createProduto = () => {
+    console.log(dadosProduto, dadosEstoque)
+    api.post('/produto', {
+      produto: {
         ...dadosProduto,
-        precoCusto:Number(dadosProduto.precoCusto),
-        precoLocacao:Number(dadosProduto.precoLocacao)
+        precoCusto: Number(dadosProduto.precoCusto),
+        precoLocacao: Number(dadosProduto.precoLocacao)
       },
-      estoque:{
-        quantidadeTotal:Number(dadosEstoque.quantidadeTotal),
-        quantidadeDisponivel:Number(dadosEstoque.quantidadeDisponivel)
+      estoque: {
+        quantidadeTotal: Number(dadosEstoque.quantidadeTotal),
+        quantidadeDisponivel: Number(dadosEstoque.quantidadeDisponivel)
       }
-    }).then((data)=>{
+    }).then((data) => {
       console.log(data);
       cancelar();
-    }).catch(error=>{
+    }).catch(error => {
       console.log(error)
     })
   }
 
-  const cancelar=()=>{
+  const cancelar = () => {
     setDadosProduto({
-      nome:'',
-      precoCusto:'',
-      precoLocacao:'',
-      categoria:''
+      nome: '',
+      precoCusto: '',
+      precoLocacao: '',
+      categoria: ''
     })
-    
+
     setDadosEstoque({
-      quantidadeTotal:'',
-      quantidadeDisponivel:''  
+      quantidadeTotal: '',
+      quantidadeDisponivel: ''
     })
   }
 
@@ -97,6 +110,7 @@ export function CadastroProdutos() {
             value={dadosProduto.nome}
             keyboardType="default"
             onChangeText={handleDataNome}
+            theme={theme}
           />
         </View>
         <View style={styles.input}>
@@ -104,34 +118,42 @@ export function CadastroProdutos() {
             style={styles.inputDesign}
             value={dadosProduto.categoria}
             keyboardType="default"
-            onChangeText={handleDataCategoria}/>
+            onChangeText={handleDataCategoria}
+            theme={theme}
+          />
         </View>
         <View style={styles.input}>
           <TextInput label="Preço de custo"
             style={styles.inputDesign}
             value={dadosProduto.precoCusto}
             keyboardType="number-pad"
-            onChangeText={handleDataPrecoCusto}/>
+            onChangeText={handleDataPrecoCusto}
+            theme={theme}
+          />
         </View>
         <View style={styles.input}>
           <TextInput label="Preço de locação"
             style={styles.inputDesign}
             value={dadosProduto.precoLocacao}
             keyboardType="number-pad"
-            onChangeText={handleDataPrecoLocacao}/>
+            onChangeText={handleDataPrecoLocacao}
+            theme={theme}
+          />
         </View>
         <View style={styles.input}>
           <TextInput label="Quantidade"
             style={styles.inputDesign}
             value={dadosEstoque.quantidadeTotal}
             keyboardType="numeric"
-            onChangeText={handleDataQantidade}/>
+            onChangeText={handleDataQantidade}
+            theme={theme}
+          />
         </View>
       </View>
       <View style={styles.containerButton}>
-        <Button title="Cadastrar" onPress={createProduto}/>
-        <Button title="Cancelar" onPress={cancelar}/>
-      </View>        
+        <Button title="Cadastrar" onPress={createProduto} />
+        <Button title="Cancelar" onPress={cancelar} />
+      </View>
     </ScrollView>
   )
 }
@@ -143,22 +165,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#EFE3DC'
   },
 
-  containerInput:{
+  containerInput: {
     flex: 1,
     padding: 14,
     marginTop: 14
   },
 
-  input:{
+  input: {
     marginBottom: 24,
   },
 
-  inputDesign:{
+  inputDesign: {
     color: colors.rosao,
-    backgroundColor:colors.background,
+    backgroundColor: colors.background,
   },
 
-  containerButton:{
+  containerButton: {
     flex: 1,
     flexDirection: 'row',
     padding: 14,

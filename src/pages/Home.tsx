@@ -8,7 +8,7 @@ import fonts from '../styles/fonts'
 export function Home() {
   return (
     <SafeAreaView style={styles.container}>
-      <Button title="Cancelar"/>
+
     </SafeAreaView>
   )
 }

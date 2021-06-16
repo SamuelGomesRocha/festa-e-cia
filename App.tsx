@@ -65,7 +65,7 @@ export default function App() {
             drawerContent={(props) => <MenuContent {...props} />}
           >
             <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Cadastro de Locacoes" component={CadastroLocacoes} />
+            <Drawer.Screen name="Cadastro de Locações" component={CadastroLocacoes} />
             <Drawer.Screen name="Cadastro de Produtos" component={CadastroProdutos} />
             <Drawer.Screen name="Cadastro de Clientes" component={CadastroCliente} />
 
