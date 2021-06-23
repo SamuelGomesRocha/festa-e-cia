@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import {
     StyleSheet,
     SafeAreaView,
@@ -6,10 +7,11 @@ import {
 }
     from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import { DefaultTheme, TextInput } from 'react-native-paper'
+import { DefaultTheme, TextInput, Searchbar } from 'react-native-paper'
 import TextInputMask from 'react-native-text-input-mask'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { Button } from '../components/Button'
+import { Picker } from '@react-native-picker/picker';
 
 import api from '../services/api'
 import colors from '../styles/colors'
@@ -32,6 +34,9 @@ const theme = {
 
 export function CadastroLocacoes() {
 
+
+
+
     const [dadosLocacao, setDadosLocacao] = useState({
         cliente: '',
         endereco: '',
@@ -45,6 +50,8 @@ export function CadastroLocacoes() {
 
     const [dadosCliente, setDadosCliente] = useState<Cliente[]>([])
     const [dadosProduto, setDadosProduto] = useState<Produto[]>([])
+
+
 
     const handleDataCliente = async () => {
         //then: busca assíncrona para a recepção de dados
@@ -67,6 +74,13 @@ export function CadastroLocacoes() {
         setDadosCliente(findDataClient)
     }
 
+    const [searchQuery, setSearchQuery] = React.useState({
+        dadosCliente
+    })
+
+
+    const onChangeSearch = dadosCliente => setSearchQuery(dadosCliente)
+
     const handleDataProduto = async () => {
         let { data } = await api.get<Produto[]>("/produto")
         let findDataProduto = data.map((produto: Produto) => {
@@ -75,8 +89,11 @@ export function CadastroLocacoes() {
             return { nome, idProduto }
         })
         setDadosProduto(findDataProduto)
-
     }
+
+    const [valorSelecionado, setValorSelecionado] = useState({
+        dadosProduto
+    })
 
 
     const handleDataEndereco = (data: string) => {
@@ -152,7 +169,8 @@ export function CadastroLocacoes() {
             taxaAdicional: '',
             custoOperacional: '',
             valorTotal: ''
-        })
+        });
+        console.log({ dadosCliente, dadosProduto })
 
     }
 
@@ -162,12 +180,13 @@ export function CadastroLocacoes() {
 
             <View style={styles.containerInput}>
                 <View style={styles.input}>
-                    <TextInput
-                        label="Cliente"
-                        style={styles.inputDesign}
-                        value={dadosLocacao.cliente}
-                        onChangeText={handleDataCliente}
-                        theme={theme}
+
+
+                    <Searchbar
+                        placeholder="Cliente"
+                        onChangeText={onChangeSearch}
+                        value={searchQuery}
+
                     />
                 </View>
 
@@ -211,6 +230,9 @@ export function CadastroLocacoes() {
                         value={dadosLocacao.adicinarProdutos}
                         onChangeText={handleDataProduto}
                         theme={theme}
+
+
+
                     />
                 </View>
 

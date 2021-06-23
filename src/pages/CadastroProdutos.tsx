@@ -102,6 +102,9 @@ export function CadastroProdutos() {
   }
 
   return (
+
+
+
     <ScrollView style={styles.container} keyboardDismissMode="interactive">
       <View style={styles.containerInput}>
         <View style={styles.input}>

@@ -23,6 +23,7 @@ import colors from './src/styles/colors'
 import { PIN } from './src/pages/PIN'
 import AppLoading from 'expo-app-loading';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { ListaProdutos } from './src/pages/ListaProdutos'
 
 const theme = {
   ...DefaultTheme,
@@ -68,6 +69,7 @@ export default function App() {
             <Drawer.Screen name="Cadastro de Locações" component={CadastroLocacoes} />
             <Drawer.Screen name="Cadastro de Produtos" component={CadastroProdutos} />
             <Drawer.Screen name="Cadastro de Clientes" component={CadastroCliente} />
+            <Drawer.Screen name="Lista de Produtos" component={ListaProdutos} />
 
           </Drawer.Navigator>
         </NavigationContainer>
